@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День народження</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #353535;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #00a3cc;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .zones {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 400px;
+        }
+
+        .zone {
+            flex: 1;
+            width: 30%;
+            height: 100%;
+            /* text-align: center; */
+            cursor: pointer;
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+            filter: blur(5px);
+        }
+
+        .zone:hover {
+            filter: blur(0);
+        }
+
+        .verse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #00a3cc;
+            color: #fff;
+        }
+
+        .flag {
+            position: absolute;
+            left: 50px;
+            top: 80px;
+            transform: translateY(-50%);
+            width: 100px;
+        }
+
+        .button {
+            display: block;
+            margin: 20px auto;
+            background-color: #ffcc00;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>З Днем народження ЮРА!</h1>
+        <p>Вітаємо та бажаємо найкращого!</p>
+    </header>
+
+    <div class="flag">
+        <!-- Додайте зображення флагу України -->
+        <img src="ukrainian_flag.png" alt="Прапор України">
+    </div>
+
+    <div class="zones">
+        <div class="zone" onclick="showVerse('Вітаю')"><img src="111.png" alt="">
+            <div class="verse"><img src="111.png" alt=""></div>
+        </div>
+        <div class="zone"
+            onclick="showVerse('Бажаю тобі, щоб всі складнощі в твоєму житті полягали в тому, щоб вибрати: яка з 10-ти машин підходить для поїздки сьогодні в магазин, на якому острові провести відпустку, що одягнути і який ресторан для обіду вибрати. А всі інші тривоги хай відступають, залишаючи місце для щасливих і радісних моментів у житті.')">
+            <div class="verse">Вірш 2: Тут ваш вірш</div>
+        </div>
+        <div class="zone" onclick="showVerse('Вітаю')"><img src="333.png" alt="">
+            <div class="verse"><img src="333.png" alt=""></div>
+        </div>
+    </div>
+
+    <button class="button" onclick="playAudio()">Натисніть мене</button>
+
+    <div class="footer">
+        &copy; 2023 Всі права захищені
+    </div>
+
+
+    <script>
+        function showVerse(verseText) {
+            // Отримати віршовий блок для поточної зони
+            var zone = event.currentTarget;
+            var verseBlock = zone.querySelector(".verse");
+
+            // Показати вірш
+            verseBlock.textContent = verseText;
+            verseBlock.style.display = "block";
+        }
+    </script>
+    
+    <audio id="audio" src="spok.mp3"></audio>
+
+<script>
+    function playAudio() {
+        var audio = document.getElementById("audio");
+        audio.play();
+    }
+</script>
+
+</body>
+
+</html>
